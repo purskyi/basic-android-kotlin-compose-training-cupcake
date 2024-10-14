@@ -51,6 +51,8 @@ import com.example.cupcake.ui.theme.CupcakeTheme
 fun SelectOptionScreen(
     subtotal: String,
     options: List<String>,
+    onCancelButtonClicked: () -> Unit = {},
+    onNextButtonClicked: () -> Unit = {},
     onSelectionChanged: (String) -> Unit = {},
     modifier: Modifier = Modifier
 ) {
@@ -105,7 +107,7 @@ fun SelectOptionScreen(
         ) {
             OutlinedButton(
                 modifier = Modifier.weight(1f),
-                onClick = {}
+                onClick = {onCancelButtonClicked}
             ) {
                 Text(stringResource(R.string.cancel))
             }
@@ -113,7 +115,7 @@ fun SelectOptionScreen(
                 modifier = Modifier.weight(1f),
                 // the button is enabled when the user makes a selection
                 enabled = selectedValue.isNotEmpty(),
-                onClick = {}
+                onClick = {onNextButtonClicked}
             ) {
                 Text(stringResource(R.string.next))
             }
