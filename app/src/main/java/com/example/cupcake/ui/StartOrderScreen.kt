@@ -84,7 +84,7 @@ fun StartOrderScreen(
             quantityOptions.forEach { item ->
                 SelectQuantityButton(
                     labelResourceId = item.first,
-                    onClick = {onNextButtonClicked(item.second)}
+                    onClick = { onNextButtonClicked(item.second) }
                 )
             }
         }
@@ -115,7 +115,7 @@ fun StartOrderPreview() {
     CupcakeTheme {
         StartOrderScreen(
             quantityOptions = DataSource.quantityOptions,
-            onNextButtonClicked = {},
+            onNextButtonClicked = {it},
             modifier = Modifier
                 .fillMaxSize()
                 .padding(dimensionResource(R.dimen.padding_medium))
